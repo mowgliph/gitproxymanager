@@ -1,6 +1,6 @@
 # Script para gestionar el uso de proxy en Git y actualizar configuraciones globales
 
-# Función para obtener la configuración del proxy en Git
+# Funcion para obtener la configuracion del proxy en Git
 function Get-GitProxy {
     $httpProxy = git config --global --get http.proxy
     $httpsProxy = git config --global --get https.proxy
@@ -46,22 +46,22 @@ function Show-Menu {
     while ($true) {
         Clear-Host
         Write-Host "=====================" -ForegroundColor Cyan
-        Write-Host "  Gestor de Proxy y Configuración de Git" -ForegroundColor Cyan
+        Write-Host "  Gestor de Proxy y Configuracion de Git" -ForegroundColor Cyan
         Write-Host "=====================" -ForegroundColor Cyan
-        Write-Host "1. Ver configuración del proxy en Git"
+        Write-Host "1. Ver configuracion del proxy en Git"
         Write-Host "2. Configurar un proxy en Git"
-        Write-Host "3. Eliminar configuración de proxy en Git"
+        Write-Host "3. Eliminar configuracion de proxy en Git"
         Write-Host "4. Aplicar configuraciones globales modernas en Git"
         Write-Host "5. Salir"
         
-        $option = Read-Host "Elige una opción"
+        $option = Read-Host "Elige una opcion"
         switch ($option) {
             "1" { Get-GitProxy }
             "2" { Set-GitProxy }
             "3" { Remove-GitProxy }
             "4" { Update-GitGlobalSettings }
-            "5" { break }
-            default { Write-Host "Opción no válida. Inténtalo de nuevo." -ForegroundColor Red }
+            "5" { exit }
+            default { Write-Host "Opcion no valida. Intentalo de nuevo." -ForegroundColor Red }
         }
         
         Pause
